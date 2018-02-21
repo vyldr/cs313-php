@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Create an Account</title>
 </head>
 <body>
-    <form action="" method="post">
+    <h1>Create an account</h1>
+    <form action="" method="post" id="maincontent">
         <table>
             <tr>
                 <td><input type="text" name="user" placeholder="Username"></td>

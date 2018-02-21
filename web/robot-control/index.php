@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Sign In</title>
 </head>
 <body>
-    <div>
+    <h1>Robot Controller</h1>
+    <div id="maincontent">
         <form action="" method="post">
             <input type="text" name="user" placeholder="Username"><br>
             <input type="password" name="pass" placeholder="Password"><br>
