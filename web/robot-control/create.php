@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Create an account</h1>
-    <form action="" method="post" id="maincontent">
+    <form action="account-creator.php" method="post" id="maincontent">
         <table>
             <tr>
                 <td><input type="text" name="user" placeholder="Username"></td>

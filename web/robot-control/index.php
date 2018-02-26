@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION["user"])) {
+    header("Location: manage.php");
+    die();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +18,7 @@
     <title>Sign In</title>
 </head>
 <body>
-    <h1>Robot Controller</h1>
+    <h1>Sign In</h1>
     <div id="maincontent">
         <form action="" method="post">
             <input type="text" name="user" placeholder="Username"><br>
