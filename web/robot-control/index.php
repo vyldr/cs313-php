@@ -2,6 +2,7 @@
 
 session_start();
 
+// Are we signed in?
 if (isset($_SESSION["user"])) {
     header("Location: manage.php");
     die();

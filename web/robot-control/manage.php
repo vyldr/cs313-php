@@ -2,6 +2,13 @@
 
 session_start();
 
+// Are we not signed in?
+if (!isset($_SESSION["user"])) {
+    header("Location: .");
+    die();
+}
+
+
 ?>
 
 <!DOCTYPE html>
