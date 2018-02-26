@@ -2,8 +2,6 @@
 
 session_start();
 
-
-
 if (isset($_POST['user']) && isset($_POST['pass']))
 {
     // they have submitted a username and password for us to check

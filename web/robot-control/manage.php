@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +13,7 @@
     <title>Manage</title>
 </head>
 <body>
-    <h1>Manage your Robots<a href="signout.php">Sign Out</a></h1>
+    <h1>Manage your Robots<a href="signOut.php"><?php echo $_SESSION["user"]; ?> Sign Out</a></h1>
     <div id="managearea">
         <button>Add one</button>
         <table>
