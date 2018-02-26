@@ -20,7 +20,7 @@ if (isset($_SESSION["user"])) {
 <body>
     <h1>Sign In</h1>
     <div id="maincontent">
-        <form action="" method="post">
+        <form action="signIn.php" method="post">
             <input type="text" name="user" placeholder="Username"><br>
             <input type="password" name="pass" placeholder="Password"><br>
             <button type="submit">Sign In</button>
