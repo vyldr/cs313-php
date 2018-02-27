@@ -16,13 +16,16 @@ if (!isset($_SESSION["user"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="control.js" defer></script>
+    <script>
+        var name = '<?php echo $_GET["robot"]; ?>' ;
+    </script>
     <title>Control</title>
 </head>
 <body>
-    <p>
+    <h1>
         Use the arrow keys to control the robot
-    </p>
+    </h1>
 
-    <input type="text" name="" id="">
 </body>
 </html>
