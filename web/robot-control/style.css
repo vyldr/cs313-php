@@ -19,12 +19,13 @@ h1 {
 
 input {
     margin: 8px;
-    width: 182px;;
+    width: 182px;
 }
 
 button {
     margin: 8px;
     width: 200px;
+    height: 28px;
 }
 
 a {
@@ -42,8 +43,11 @@ h1 a {
 
 #managearea {
     margin: auto;
-    margin-top: 140px;
-    width: 400px;
+    margin-top: 100px;
     text-align: center;
 }
 
+table {
+    margin: auto;
+    margin-top: 40px;
+}

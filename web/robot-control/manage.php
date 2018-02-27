@@ -17,12 +17,17 @@ if (!isset($_SESSION["user"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="manager.js" defer></script>
     <title>Manage</title>
 </head>
 <body>
     <h1>Manage your Robots<a href="signOut.php"><?php echo $_SESSION["user"]; ?> Sign Out</a></h1>
     <div id="managearea">
-        <button>Add one</button>
+        <button onclick="addOne();" id="addone">Add one</button>
+        <form action="addrobot.php" method="post" id="addform" style="display:none;">
+            <input type="text" name="name" id="name" placeholder="Robot name" required>
+            <button type="submit">Add</button>
+        </form>
         <table>
             <tr>
                 <th>Name</th>
