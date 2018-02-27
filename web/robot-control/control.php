@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+// Are we not signed in?
+if (!isset($_SESSION["user"])) {
+    header("Location: .");
+    die();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,5 +22,7 @@
     <p>
         Use the arrow keys to control the robot
     </p>
+
+    <input type="text" name="" id="">
 </body>
 </html>
