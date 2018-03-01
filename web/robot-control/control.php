@@ -27,7 +27,9 @@ if (!isset($_SESSION["user"])) {
         Use the arrow keys to control the robot
     </h1>
     <div id="content">
-        <a href='simulator.php?robot=<?php echo $_GET["robot"]; ?>' target="_blank">
+        <a href='#' target="_blank" 
+        onclick="window.open('simulator.php?robot=<?php echo $_GET["robot"]; 
+        ?>', 'newwindow', 'width=400,height=300'); return false;">
             Launch the simulator
         </a>
         <br>
