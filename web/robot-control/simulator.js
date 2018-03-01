@@ -1,29 +1,25 @@
-var canvas = document.getElementById('canvas').getContext('2d');
-
 // Set up our variables
 var robot = {};
-robot.x = 300;
-robot.y = 300;
+robot.x = Math.floor(window.innerWidth / 2) + 20;
+robot.y = Math.floor(window.innerHeight / 2) + 20;
 var boxWidth;
 var boxHeight;
 var step = 1;
+var robotSize = 20;
+var interval = 1000;
+var commands = "";
+var commandlist = [];
+var canvas = document.getElementById('canvas').getContext('2d');
 
-
+// Make sure everything fits when we resize the window
 function resize() {
     boxWidth = window.innerWidth;
     boxHeight = window.innerHeight;
     document.getElementById("canvas").width = window.innerWidth;
     document.getElementById("canvas").height = window.innerHeight;
-}
+}    
 
-resize();
-
-var robotSize = 20;
-var interval = 1000;
-
-var commands = "";
-var commandlist = [];
-
+// Redraw the frame
 function draw() {
     // Clear the background
     canvas.fillStyle = "#9cc";
@@ -36,21 +32,16 @@ function draw() {
         - robotSize, robotSize, robotSize);
 }
 
+// Get the new commands
 function update() {
-    
-
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         commands = this.responseText;
         commandlist = commandlist.concat(commands.split(""));
-        console.log(commandlist.length);
     };
     xhttp.open("GET", "getInput.php?name=" + robotName, true);
     xhttp.send();
 }
-
-// Update the display
-setInterval(update, interval);
 
 // Move the robot with the arrow keys
 document.addEventListener('keypress', (event) => {
@@ -90,4 +81,9 @@ function move() {
     draw();
 }
 
+// Start the repeating functions
+setInterval(update, interval);
 setInterval(move, 17)
+
+// Set the initial size
+resize();
