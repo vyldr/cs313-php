@@ -26,6 +26,15 @@ if (!isset($_SESSION["user"])) {
     <h1>
         Use the arrow keys to control the robot
     </h1>
+    <div id="content">
+        <a href='simulator.php?robot=<?php echo $_GET["robot"]; ?>' target="_blank">
+            Launch the simulator
+        </a>
+        <br>
+        <a href="signOut.php">
+            <?php echo $_SESSION["user"]; ?> - Sign Out
+        </a>
+    </div>
 
 </body>
 </html>

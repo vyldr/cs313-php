@@ -21,7 +21,10 @@ if (!isset($_SESSION["user"])) {
     <title>Manage</title>
 </head>
 <body>
-    <h1>Manage your Robots<a href="signOut.php"><?php echo $_SESSION["user"]; ?> - Sign Out</a></h1>
+    <h1>
+        Manage your Robots
+        <a href="signOut.php"><?php echo $_SESSION["user"]; ?> - Sign Out</a>
+    </h1>
     <div id="managearea">
         <button onclick="addOne();" id="addone">Add one</button>
         <form action="addrobot.php" method="post" id="addform" style="display:none;">
@@ -47,7 +50,8 @@ if (!isset($_SESSION["user"])) {
 
                 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
                 {
-                    echo "<tr><td>" . $row["robot_name"] . "</td><td><a href='control.php?robot=" . $row["robot_name"] . "'>Start</a></td></tr>";
+                    echo "<tr><td>" . $row["robot_name"] . "</td><td><a href='control.php?robot="
+                     . $row["robot_name"] . "'>Start</a></td></tr>";
                 }
 
             ?>

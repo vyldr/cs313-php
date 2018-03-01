@@ -1,34 +1,51 @@
 var canvas = document.getElementById('canvas').getContext('2d');
 
+// Set up our variables
 var robot = {};
 robot.x = 300;
 robot.y = 300;
-
+var boxWidth;
+var boxHeight;
 var step = 1;
-var boxWidth = 600;
-var boxHeight = 600;
+
+
+function resize() {
+    boxWidth = window.innerWidth;
+    boxHeight = window.innerHeight;
+    document.getElementById("canvas").width = window.innerWidth;
+    document.getElementById("canvas").height = window.innerHeight;
+}
+
+resize();
+
 var robotSize = 20;
 var interval = 1000;
 
 var commands = "";
 var commandlist = [];
 
-function update() {
+function draw() {
     // Clear the background
     canvas.fillStyle = "#9cc";
-    canvas.fillRect(0, 0, 600, 600);
+    canvas.fillRect(0, 0, boxWidth, boxHeight);
     
     // draw the robot
     canvas.fillStyle = "#f00";
-    canvas.fillRect((robot.x - robotSize / 2) % (boxWidth + robotSize) - robotSize, (robot.y - robotSize / 2) % (boxHeight + robotSize) - robotSize, robotSize, robotSize);
+    canvas.fillRect((robot.x - robotSize / 2) % (boxWidth + robotSize)
+        - robotSize, (robot.y - robotSize / 2) % (boxHeight + robotSize)
+        - robotSize, robotSize, robotSize);
+}
 
-    move();
+function update() {
+    
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         commands = this.responseText;
+        commandlist = commandlist.concat(commands.split(""));
+        console.log(commandlist.length);
     };
-    xhttp.open("GET", "getInput.php?name=" + document.getElementById("nameinput").value, true);
+    xhttp.open("GET", "getInput.php?name=" + robotName, true);
     xhttp.send();
 }
 
@@ -53,24 +70,24 @@ document.addEventListener('keypress', (event) => {
     }  
 }, false);
 
+// Move the robot with commands from the server
 function move() {
-    commandlist = commands.split('');
-    console.log(commands);
-    for (var i = 0; i < commandlist.length; i++) {
-        switch(commandlist[i]) {
-            case "u":
-                console.log("up");
-                robot.y -= step;
-                break;
-            case "d":
-                robot.y += step;
-                break;
-            case "l":
-                robot.x -= step;
-                break;
-            case "r":
-                robot.x += step;
-                break;
+    command = commandlist.shift();
+    switch(command) {
+        case "u":
+            robot.y -= step;
+            break;
+        case "d":
+            robot.y += step;
+            break;
+        case "l":
+            robot.x -= step;
+            break;
+        case "r":
+            robot.x += step;
+            break;
     }
+    draw();
 }
-}
+
+setInterval(move, 17)
